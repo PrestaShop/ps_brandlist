@@ -258,7 +258,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
         $hookName = null,
         array $configuration = array()
     ) {
-        $brands = Manufacturer::getManufacturers();
+        $brands = Manufacturer::getManufacturers(false, (int)Context::getContext()->language->id);
         foreach ($brands as &$brand) {
             $brand['image'] = $this->context->language->iso_code.'-default';
             $brand['link'] = $this->context->link->getManufacturerLink($brand);
