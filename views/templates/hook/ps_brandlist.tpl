@@ -25,7 +25,7 @@
 
 <div>
   <h4>
-    {if $display_link_brand}<a href="{$page_link}">{/if}
+    {if $display_link_brand}<a href="{$page_link}" title="{l s='Brands' d='Modules.Brandlist.Shop'}">{/if}
       {l s='Brands' d='Modules.Brandlist.Shop'}
     {if $display_link_brand}</a>{/if}
   </h4>
