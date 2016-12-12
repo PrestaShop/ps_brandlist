@@ -261,7 +261,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
         $brands = Manufacturer::getManufacturers(false, (int)Context::getContext()->language->id);
         foreach ($brands as &$brand) {
             $brand['image'] = $this->context->language->iso_code.'-default';
-            $brand['link'] = $this->context->link->getManufacturerLink($brand);
+            $brand['link'] = $this->context->link->getManufacturerLink($brand['id_manufacturer']);
             $fileExist = file_exists(
                 _PS_MANU_IMG_DIR_ . $brand['id_manufacturer'] . '-' .
                 ImageType::getFormattedName('medium').'.jpg'
