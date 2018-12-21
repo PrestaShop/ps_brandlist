@@ -70,8 +70,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
             $this->registerHook('displayRightColumn') &&
             $this->registerHook('actionObjectManufacturerDeleteAfter') &&
             $this->registerHook('actionObjectManufacturerAddAfter') &&
-            $this->registerHook('actionObjectManufacturerUpdateAfter')
-        ;
+            $this->registerHook('actionObjectManufacturerUpdateAfter');
     }
 
     public function uninstall()
