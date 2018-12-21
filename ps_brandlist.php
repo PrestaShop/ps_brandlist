@@ -150,7 +150,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
                         [],
                         'Admin.Global'
                     ),
-                    'icon' => 'icon-cogs'
+                    'icon' => 'icon-cogs',
                 ],
                 'input' => [
                     [
@@ -198,7 +198,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
                             'Modules.Brandlist.Admin'
                         ),
                         'name' => 'BRAND_DISPLAY_TEXT_NB',
-                        'class' => 'fixed-width-xs'
+                        'class' => 'fixed-width-xs',
                     ],
                 ],
                 'submit' => [
@@ -233,7 +233,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
         $helper->tpl_vars = [
             'fields_value' => $this->getConfigFieldsValues(),
             'languages' => $this->context->controller->getLanguages(),
-            'id_language' => $this->context->language->id
+            'id_language' => $this->context->language->id,
         ];
 
         return $helper->generateForm([$fields_form]);
