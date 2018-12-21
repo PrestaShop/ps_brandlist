@@ -26,7 +26,7 @@
 
 use PrestaShop\PrestaShop\Core\Module\WidgetInterface;
 
-if (!defined('_PS_VERSION_')) {
+if ( ! defined('_PS_VERSION_')) {
     exit;
 }
 
@@ -88,13 +88,13 @@ class Ps_Brandlist extends Module implements WidgetInterface
             $type = Tools::getValue('BRAND_DISPLAY_TYPE');
             $text_nb = (int)Tools::getValue('BRAND_DISPLAY_TEXT_NB');
 
-            if ('brand_text' === $type && !Validate::isUnsignedInt($text_nb)) {
+            if ('brand_text' === $type && ! Validate::isUnsignedInt($text_nb)) {
                 $errors[] = $this->trans(
                     'There is an invalid number of elements.',
                     [],
                     'Modules.Brandlist.Admin'
                 );
-            } elseif (!in_array($type, ['brand_text', 'brand_form'])) {
+            } elseif ( ! in_array($type, ['brand_text', 'brand_form'])) {
                 $errors[] = $this->trans(
                     'Please activate at least one system list.',
                     [],
@@ -260,7 +260,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
         $cacheId = $this->getCacheId('ps_brandlist');
         $isCached = $this->isCached($this->templateFile, $cacheId);
 
-        if (!$isCached) {
+        if ( ! $isCached) {
             $this->smarty->assign($this->getWidgetVariables($hookName, $configuration));
         }
 
@@ -282,7 +282,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
             $withProduct = true
         );
 
-        if (!empty($brands)) {
+        if ( ! empty($brands)) {
             foreach ($brands as &$brand) {
                 $brand['image'] = $this->context->language->iso_code . '-default';
                 $brand['link'] = $this->context->link->getManufacturerLink($brand['id_manufacturer']);
