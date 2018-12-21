@@ -86,7 +86,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
 
         if (Tools::isSubmit('submitBlockBrands')) {
             $type = Tools::getValue('BRAND_DISPLAY_TYPE');
-            $text_nb = (int)Tools::getValue('BRAND_DISPLAY_TEXT_NB');
+            $text_nb = (int) Tools::getValue('BRAND_DISPLAY_TEXT_NB');
 
             if ('brand_text' === $type && ! Validate::isUnsignedInt($text_nb)) {
                 $errors[] = $this->trans(
@@ -214,7 +214,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
         $helper = new HelperForm();
         $helper->show_toolbar = false;
         $helper->table = $this->table;
-        $lang = new Language((int)Configuration::get('PS_LANG_DEFAULT'));
+        $lang = new Language((int) Configuration::get('PS_LANG_DEFAULT'));
         $helper->default_form_language = $lang->id;
         $helper->allow_employee_form_lang =
             Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG') ?
@@ -273,7 +273,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
     ) {
         $brands = Manufacturer::getManufacturers(
             false,
-            (int)Context::getContext()->language->id,
+            (int) Context::getContext()->language->id,
             $active = true,
             $p = false,
             $n = false,
