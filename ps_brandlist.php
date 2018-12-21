@@ -117,7 +117,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
             }
         }
 
-        return $output.$this->renderForm();
+        return $output . $this->renderForm();
     }
 
     public function hookActionObjectManufacturerUpdateAfter($params)
