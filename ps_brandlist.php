@@ -72,8 +72,8 @@ class Ps_Brandlist extends Module implements WidgetInterface
             Configuration::updateValue('BRAND_DISPLAY_TEXT_NB', Configuration::get('MANUFACTURER_DISPLAY_TEXT_NB', null, null, null, 5));
 
             Configuration::deleteByName('MANUFACTURER_DISPLAY_TEXT');
-			Configuration::deleteByName('MANUFACTURER_DISPLAY_TEXT_NB');
-			Configuration::deleteByName('MANUFACTURER_DISPLAY_FORM');
+            Configuration::deleteByName('MANUFACTURER_DISPLAY_TEXT_NB');
+            Configuration::deleteByName('MANUFACTURER_DISPLAY_FORM');
         } else {
             Configuration::updateValue('BRAND_DISPLAY_TEXT_NB', 5);
         }
