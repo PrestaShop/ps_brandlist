@@ -1,8 +1,23 @@
-<form action="#">
-  <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-    <option value="">{l s='All brands' d='Modules.Brandlist.Shop'}</option>
+<div class="brands-sort dropdown">
+  <button
+    class="btn-unstyle select-title"
+    rel="nofollow"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false">
+    {l s='All brands' d='Modules.Brandlist.Shop'}
+    <i class="material-icons float-xs-right">&#xE5C5;</i>
+  </button>
+  <div class="dropdown-menu">
     {foreach from=$brands item=brand}
       <option value="{$brand['link']}">{$brand['name']}</option>
+      <a
+        rel="nofollow"
+        href="{$brand['link']}"
+        class="select-list dropdown-item"
+      >
+        {$brand['name']}
+      </a>
     {/foreach}
-  </select>
-</form>
+  </div>
+</div>
