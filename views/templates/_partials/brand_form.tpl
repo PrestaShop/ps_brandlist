@@ -10,7 +10,6 @@
   </button>
   <div class="dropdown-menu">
     {foreach from=$brands item=brand}
-      <option value="{$brand['link']}">{$brand['name']}</option>
       <a
         rel="nofollow"
         href="{$brand['link']}"
