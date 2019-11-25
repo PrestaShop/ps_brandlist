@@ -6,7 +6,7 @@
     aria-haspopup="true"
     aria-expanded="false">
     {l s='All brands' d='Modules.Brandlist.Shop'}
-    <i class="material-icons float-xs-right">&#xE5C5;</i>
+    <i class="material-icons float-xs-right">arrow_drop_down</i>
   </button>
   <div class="dropdown-menu">
     {foreach from=$brands item=brand}
