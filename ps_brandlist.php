@@ -303,7 +303,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
             'page_link' => $this->context->link->getPageLink('manufacturer'),
             'text_list_nb' => Configuration::get('BRAND_DISPLAY_TEXT_NB'),
             'brand_display_type' => Configuration::get('BRAND_DISPLAY_TYPE'),
-            'display_link_brand' => Configuration::get('PS_DISPLAY_SUPPLIERS'),
+            'display_link_brand' => Configuration::get('PS_DISPLAY_MANUFACTURERS'),
         );
     }
 }
