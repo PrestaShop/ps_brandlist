@@ -51,7 +51,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
             'Modules.Brandlist.Admin'
         );
         $this->description = $this->trans(
-            'Displays a block listing product brands.',
+            'Display your brands on your catalog and allow your visitors to filter their search by brand.',
             array(),
             'Modules.Brandlist.Admin'
         );
