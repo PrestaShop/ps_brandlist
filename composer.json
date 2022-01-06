@@ -2,7 +2,7 @@
   "name": "prestashop/ps_brandlist",
   "description": "PrestaShop - Brand list",
   "homepage": "https://github.com/PrestaShop/ps_brandlist",
-  "license": ["AFL-3.0"],
+  "license": "AFL-3.0",
   "authors": [
     {
       "name": "PrestaShop SA",
