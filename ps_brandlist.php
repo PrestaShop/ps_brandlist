@@ -47,15 +47,15 @@ class Ps_Brandlist extends Module implements WidgetInterface
 
         $this->displayName = $this->trans(
             'Brand list',
-            array(),
+            [],
             'Modules.Brandlist.Admin'
         );
         $this->description = $this->trans(
             'Display your brands on your catalog and allow your visitors to filter their search by brand.',
-            array(),
+            [],
             'Modules.Brandlist.Admin'
         );
-        $this->ps_versions_compliancy = array('min' => '1.7.0.0', 'max' => _PS_VERSION_);
+        $this->ps_versions_compliancy = ['min' => '1.7.0.0', 'max' => _PS_VERSION_];
 
         $this->templateFile = 'module:ps_brandlist/views/templates/hook/ps_brandlist.tpl';
     }
@@ -87,18 +87,18 @@ class Ps_Brandlist extends Module implements WidgetInterface
 
         if (Tools::isSubmit('submitBlockBrands')) {
             $type = Tools::getValue('BRAND_DISPLAY_TYPE');
-            $text_nb = (int)Tools::getValue('BRAND_DISPLAY_TEXT_NB');
+            $text_nb = (int) Tools::getValue('BRAND_DISPLAY_TEXT_NB');
 
             if ('brand_text' === $type && !Validate::isUnsignedInt($text_nb)) {
                 $errors[] = $this->trans(
                     'There is an invalid number of elements.',
-                    array(),
+                    [],
                     'Modules.Brandlist.Admin'
                 );
-            } elseif (!in_array($type, array('brand_text', 'brand_form'))) {
+            } elseif (!in_array($type, ['brand_text', 'brand_form'])) {
                 $errors[] = $this->trans(
                     'Please activate at least one system list.',
-                    array(),
+                    [],
                     'Modules.Brandlist.Admin'
                 );
             } else {
@@ -112,13 +112,13 @@ class Ps_Brandlist extends Module implements WidgetInterface
             } else {
                 $output .= $this->displayConfirmation($this->trans(
                     'Settings updated.',
-                    array(),
+                    [],
                     'Admin.Global'
                 ));
             }
         }
 
-        return $output.$this->renderForm();
+        return $output . $this->renderForm();
     }
 
     public function hookActionObjectManufacturerUpdateAfter($params)
@@ -143,79 +143,79 @@ class Ps_Brandlist extends Module implements WidgetInterface
 
     public function renderForm()
     {
-        $fields_form = array(
-            'form' => array(
-                'legend' => array(
+        $fields_form = [
+            'form' => [
+                'legend' => [
                     'title' => $this->trans(
                         'Settings',
-                        array(),
+                        [],
                         'Admin.Global'
                     ),
-                    'icon' => 'icon-cogs'
-                ),
-                'input' => array(
-                    array(
+                    'icon' => 'icon-cogs',
+                ],
+                'input' => [
+                    [
                         'type' => 'select',
                         'label' => $this->trans(
                             'Type of display',
-                            array(),
+                            [],
                             'Modules.Brandlist.Admin'
                         ),
                         'name' => 'BRAND_DISPLAY_TYPE',
                         'required' => true,
-                        'options' => array(
-                            'query' => array(
-                                array(
+                        'options' => [
+                            'query' => [
+                                [
                                     'id' => 'brand_text',
                                     'name' => $this->trans(
                                         'Use a plain-text list',
-                                        array(),
+                                        [],
                                         'Modules.Brandlist.Admin'
                                     ),
-                                ),
-                                array(
+                                ],
+                                [
                                     'id' => 'brand_form',
                                     'name' => $this->trans(
                                         'Use a drop-down list',
-                                        array(),
+                                        [],
                                         'Modules.Brandlist.Admin'
                                     ),
-                                ),
-                            ),
+                                ],
+                            ],
                             'id' => 'id',
                             'name' => 'name',
-                        ),
-                    ),
-                    array(
+                        ],
+                    ],
+                    [
                         'type' => 'text',
                         'label' => $this->trans(
                             'Number of elements to display',
-                            array(),
+                            [],
                             'Modules.Brandlist.Admin'
                         ),
                         'desc' => $this->trans(
                             'Only apply in plain-text mode',
-                            array(),
+                            [],
                             'Modules.Brandlist.Admin'
                         ),
                         'name' => 'BRAND_DISPLAY_TEXT_NB',
-                        'class' => 'fixed-width-xs'
-                    ),
-                ),
-                'submit' => array(
+                        'class' => 'fixed-width-xs',
+                    ],
+                ],
+                'submit' => [
                     'title' => $this->trans(
                         'Save',
-                        array(),
+                        [],
                         'Admin.Actions'
                     ),
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
 
         $helper = new HelperForm();
         $helper->show_toolbar = false;
         $helper->table = $this->table;
-        $lang = new Language((int)Configuration::get('PS_LANG_DEFAULT'));
+        $lang = new Language((int) Configuration::get('PS_LANG_DEFAULT'));
         $helper->default_form_language = $lang->id;
         $helper->allow_employee_form_lang =
             Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG') ?
@@ -231,18 +231,18 @@ class Ps_Brandlist extends Module implements WidgetInterface
             '&tab_module=' . $this->tab .
             '&module_name=' . $this->name;
         $helper->token = Tools::getAdminTokenLite('AdminModules');
-        $helper->tpl_vars = array(
+        $helper->tpl_vars = [
             'fields_value' => $this->getConfigFieldsValues(),
             'languages' => $this->context->controller->getLanguages(),
-            'id_language' => $this->context->language->id
-        );
+            'id_language' => $this->context->language->id,
+        ];
 
-        return $helper->generateForm(array($fields_form));
+        return $helper->generateForm([$fields_form]);
     }
 
     public function getConfigFieldsValues()
     {
-        return array(
+        return [
             'BRAND_DISPLAY_TYPE' => Tools::getValue(
                 'BRAND_DISPLAY_TYPE',
                 Configuration::get('BRAND_DISPLAY_TYPE')
@@ -251,12 +251,12 @@ class Ps_Brandlist extends Module implements WidgetInterface
                 'BRAND_DISPLAY_TEXT_NB',
                 Configuration::get('BRAND_DISPLAY_TEXT_NB')
             ),
-        );
+        ];
     }
 
     public function renderWidget(
         $hookName = null,
-        array $configuration = array()
+        array $configuration = []
     ) {
         $cacheId = $this->getCacheId('ps_brandlist');
         $isCached = $this->isCached($this->templateFile, $cacheId);
@@ -270,11 +270,11 @@ class Ps_Brandlist extends Module implements WidgetInterface
 
     public function getWidgetVariables(
         $hookName = null,
-        array $configuration = array()
+        array $configuration = []
     ) {
         $brands = Manufacturer::getManufacturers(
             false,
-            (int)Context::getContext()->language->id,
+            (int) Context::getContext()->language->id,
             $active = true,
             $p = false,
             $n = false,
@@ -298,12 +298,12 @@ class Ps_Brandlist extends Module implements WidgetInterface
             }
         }
 
-        return array(
+        return [
             'brands' => $brands,
             'page_link' => $this->context->link->getPageLink('manufacturer'),
             'text_list_nb' => Configuration::get('BRAND_DISPLAY_TEXT_NB'),
             'brand_display_type' => Configuration::get('BRAND_DISPLAY_TYPE'),
             'display_link_brand' => Configuration::get('PS_DISPLAY_MANUFACTURERS'),
-        );
+        ];
     }
 }
