@@ -89,6 +89,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
             $type = Tools::getValue('BRAND_DISPLAY_TYPE');
             $text_nb = (int) Tools::getValue('BRAND_DISPLAY_TEXT_NB');
 
+            $errors = [];
             if ('brand_text' === $type && !Validate::isUnsignedInt($text_nb)) {
                 $errors[] = $this->trans(
                     'There is an invalid number of elements.',
@@ -107,7 +108,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
                 $this->_clearCache('*');
             }
 
-            if (isset($errors) && count($errors)) {
+            if (count($errors)) {
                 $output .= $this->displayError(implode('<br />', $errors));
             } else {
                 $output .= $this->displayConfirmation($this->trans(
