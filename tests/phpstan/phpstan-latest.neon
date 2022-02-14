@@ -1,0 +1,7 @@
+includes:
+	- %currentWorkingDirectory%/tests/phpstan/phpstan.neon
+
+parameters:
+  ignoreErrors:
+    - '#Parameter \#4 \$p of static method ManufacturerCore::getManufacturers\(\) expects int, false given.#'
+    - '#Parameter \#5 \$n of static method ManufacturerCore::getManufacturers\(\) expects int, false given.#'
