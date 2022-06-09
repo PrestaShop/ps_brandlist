@@ -87,9 +87,15 @@ class Ps_Brandlist extends Module implements WidgetInterface
 
         if (Tools::isSubmit('submitBlockBrands')) {
             $type = Tools::getValue('BRAND_DISPLAY_TYPE');
-            $text_nb = (int)Tools::getValue('BRAND_DISPLAY_TEXT_NB');
-
-            if ('brand_text' === $type && !Validate::isUnsignedInt($text_nb)) {
+            $text_nb = Tools::getValue('BRAND_DISPLAY_TEXT_NB');
+    
+            if (!is_numeric(Tools::getValue('BRAND_DISPLAY_TEXT_NB'))) {
+                $errors[] = $this->trans(
+                    'Please use only numeric value.',
+                    array(),
+                    'Modules.Brandlist.Admin'
+                );
+            } elseif ('brand_text' === $type && !Validate::isUnsignedInt($text_nb)) {
                 $errors[] = $this->trans(
                     'There is an invalid number of elements.',
                     array(),
@@ -103,7 +109,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
                 );
             } else {
                 Configuration::updateValue('BRAND_DISPLAY_TYPE', $type);
-                Configuration::updateValue('BRAND_DISPLAY_TEXT_NB', $text_nb);
+                Configuration::updateValue('BRAND_DISPLAY_TEXT_NB', (int)$text_nb);
                 $this->_clearCache('*');
             }
 
