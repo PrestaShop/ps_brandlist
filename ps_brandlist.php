@@ -87,7 +87,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
 
         if (Tools::isSubmit('submitBlockBrands')) {
             $type = Tools::getValue('BRAND_DISPLAY_TYPE');
-            $text_nb = (int) Tools::getValue('BRAND_DISPLAY_TEXT_NB');
+            $text_nb = Tools::getValue('BRAND_DISPLAY_TEXT_NB');
 
             $errors = [];
             if ('brand_text' === $type && !Validate::isUnsignedInt($text_nb)) {
