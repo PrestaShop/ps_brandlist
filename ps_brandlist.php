@@ -259,6 +259,12 @@ class Ps_Brandlist extends Module implements WidgetInterface
         $hookName = null,
         array $configuration = []
     ) {
+        // If manufacturer listing is disabled in backoffice, we won't show this block.
+        // Customers would be pointed to 404 anyway.
+        if (!Configuration::get('PS_DISPLAY_MANUFACTURERS')) {
+            return;
+        }
+
         $cacheId = $this->getCacheId('ps_brandlist');
         $isCached = $this->isCached($this->templateFile, $cacheId);
 
