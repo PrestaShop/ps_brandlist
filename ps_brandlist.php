@@ -55,7 +55,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
             [],
             'Modules.Brandlist.Admin'
         );
-        $this->ps_versions_compliancy = ['min' => '1.7.0.0', 'max' => _PS_VERSION_];
+        $this->ps_versions_compliancy = ['min' => '8.0.0', 'max' => _PS_VERSION_];
 
         $this->templateFile = 'module:ps_brandlist/views/templates/hook/ps_brandlist.tpl';
     }
