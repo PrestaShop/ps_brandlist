@@ -55,7 +55,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
             [],
             'Modules.Brandlist.Admin'
         );
-        $this->ps_versions_compliancy = ['min' => '8.0.0', 'max' => _PS_VERSION_];
+        $this->ps_versions_compliancy = ['min' => '8.2.0', 'max' => _PS_VERSION_];
 
         $this->templateFile = 'module:ps_brandlist/views/templates/hook/ps_brandlist.tpl';
     }
@@ -259,16 +259,7 @@ class Ps_Brandlist extends Module implements WidgetInterface
         $hookName = null,
         array $configuration = []
     ) {
-        /*
-         * If manufacturer listing is disabled in backoffice, we won't show this block.
-         * Customers would be pointed to 404 anyway.
-         *
-         * We need to check different configuration keys depending on PrestaShop versions,
-         * it changed in https://github.com/PrestaShop/PrestaShop/pull/14665 to allow
-         * independent control of manufacturers and suppliers. before, there was only
-         * PS_DISPLAY_SUPPLIERS for both.
-         */
-        if (!Configuration::get(version_compare(_PS_VERSION_, '1.7.7.0', '>=') ? 'PS_DISPLAY_MANUFACTURERS' : 'PS_DISPLAY_SUPPLIERS')) {
+        if (!Configuration::get('PS_DISPLAY_MANUFACTURERS')) {
             return;
         }
 

@@ -6,7 +6,7 @@ Display your brands on your catalog and allow your visitors to filter their sear
 
 ## Compatibility
 
-PrestaShop: `8.0.0` or later
+PrestaShop: `8.2.0` or later
 
 ## Multistore compatibility
 
